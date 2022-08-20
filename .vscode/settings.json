@@ -1,12 +1,13 @@
 {
   "files.exclude": {
-    "**/.vscode": false,
+    "**/.vscode": true,
     "**/node_modules": true,
     "**/dist": true,
     ".git": true,
-    "**/.gitignore": true,
     "**/.eslintignore": true,
     "**/.eslintrc.json": true,
+    "**/.gitignore": true,
+    "**/.npmignore": true,
     "**/*lock.json": true,
     "**/*.lock": true,
     "**/*.log": true,
@@ -25,6 +26,7 @@
   "editor.detectIndentation": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
+  "editor.foldingMaximumRegions": 10000,
 
   "typescript.suggest.autoImports": false,
   "typescript.suggest.paths": true,

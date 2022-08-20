@@ -1,0 +1,14 @@
+.git/
+.vscode
+dist/demo/
+dist/types/
+src/
+.eslintignore
+.eslintrc.json
+.gitignore
+.npmignore
+.npmrc
+babel.config.json
+npm-debug.log
+tsconfig.json
+*.tgz

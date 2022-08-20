@@ -5,22 +5,46 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "babel src -d dist --extensions .js,.ts,.tsx"
+    "build": "babel src -d dist --extensions .js,.ts,.tsx && tsc --declaration --emitDeclarationOnly --project tsconfig.json",
+    "types": "tsc --declaration --emitDeclarationOnly --project tsconfig.json",
+    "clean": "rimraf dist *.tgz *.log",
+    "prepack": "babel src -d dist --extensions .js,.ts,.tsx && tsc --declaration --emitDeclarationOnly --project tsconfig.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AFE-GmdG/react-tui.git"
+    "url": "git+https://github.com/AFE-GmdG/react-tui.git"
   },
   "engines": {
     "node": ">=16.14.0"
   },
   "keywords": [
-    "react"
+    "react",
+    "tui",
+    "curses"
   ],
   "author": "AFE-GmdG",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AFE-GmdG/react-tui/issues"
   },
-  "homepage": "https://github.com/AFE-GmdG/react-tui#readme"
+  "homepage": "https://github.com/AFE-GmdG/react-tui#readme",
+  "dependencies": {
+    "ansi-escapes": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.18.10",
+    "@babel/core": "7.18.10",
+    "@babel/preset-env": "7.18.10",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.18.6",
+    "@types/node": "18.6.4",
+    "@types/react": "18.0.15",
+    "@types/react-reconciler": "0.28.0",
+    "react-reconciler": "0.29.0",
+    "rimraf": "3.0.2",
+    "typescript": "4.7.4"
+  }
 }
