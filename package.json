@@ -11,6 +11,8 @@
     "builddev": "webpack --mode=development",
     "prebuilddemo": "rimraf ./dist *.tgz *.log",
     "builddemo": "webpack --mode=development --env=demo",
+    "demo": "node .",
+    "prepack": "rimraf ./dist *.tgz *.log && webpack --mode=production",
     "watch": "webpack --mode=development --watch",
     "clean": "rimraf ./dist *.tgz *.log"
   },

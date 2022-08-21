@@ -22,6 +22,10 @@ const config = {
     index: ["./index.ts"],
   },
 
+  externals: {
+    react: "react",
+  },
+
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -58,7 +62,9 @@ module.exports = (env, argv) => {
     return {
       ...config,
 
-      entry: env.demo ? { index: ["./demo/index.tsx"] } : { ...config.entry },
+      entry: env.demo ? { index: ["./demo/index.tsx"] } : config.entry,
+
+      externals: env.demo ? { } : config.externals,
 
       devtool: "source-map",
 

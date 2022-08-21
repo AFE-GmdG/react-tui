@@ -12,6 +12,9 @@ class Program extends EventEmitter {
   #rows: number;
   get rows() { return this.#rows; }
 
+  get input() { return this.#options.input; }
+  get output() { return this.#options.output; }
+
   constructor(options: ProgramOptions = {}) {
     super({ captureRejections: true });
 

@@ -227,10 +227,11 @@ class TuiRoot {
     throw new Error("Method not implemented.");
   }
 
-  #appendChildToContainer(_container: Container, _child: Instance | TextInstance) {
-    debugger;
-    // container.append(child);
-    throw new Error("Method not implemented.");
+  #appendChildToContainer(container: Container, child: Instance | TextInstance) {
+    // Same as `appendChild`, but for when a node is attached to the root container.
+    // This is useful if attaching to the root has a slightly different implementation,
+    // or if the root container nodes are of a different type than the rest of the tree.
+    container.screen.append(child);
   }
 
   #insertBefore(_parentInstance: Instance, _child: Instance | TextInstance, _beforeChild: Instance | TextInstance) {
@@ -293,10 +294,8 @@ class TuiRoot {
     throw new Error("Method not implemented.");
   }
 
-  #clearContainer(_container: Container) {
-    debugger;
-    // container.render();
-    throw new Error("Method not implemented.");
+  #clearContainer(container: Container) {
+    container.screen.render();
   }
 
   render(children: React.ReactNode, callback?: () => void) {

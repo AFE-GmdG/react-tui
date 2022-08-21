@@ -22,6 +22,10 @@ class Box extends Node {
     super(screen, "box");
     this.#props = props;
   }
+
+  render() {
+    console.log(`Render Box: ${this.#props.width || "(null)"}x${this.#props.height || "(null)"}`);
+  }
 }
 
 export default Box;

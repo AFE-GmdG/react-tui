@@ -5,21 +5,25 @@ import type { Instance, TextInstance } from "../fiber/types";
 
 import type Screen from "./screen";
 
-class Node extends EventEmitter {
+abstract class Node extends EventEmitter {
   #nodeType: NodeType;
   get nodeType(): NodeType { return this.#nodeType; }
 
-  protected _screen: Screen;
-  get screen(): Screen { return this._screen; }
+  #screen: Screen;
+  get screen(): Screen { return this.#screen; }
 
   parent: Node | null;
   #children: (Node | TextInstance)[];
+  get children(): readonly (Node | TextInstance)[] {
+    return this.#children;
+  }
 
   detached: boolean;
 
   constructor(screen: Screen, nodeType: NodeType) {
     super({ captureRejections: true });
-    this._screen = screen;
+    // Since the screen ctor cannot fill the parameter screen with this in his super call, we do it here.
+    this.#screen = nodeType === "screen" ? (this as unknown as Screen) : screen;
     this.#nodeType = nodeType;
     this.parent = null;
     this.#children = [];
@@ -37,7 +41,8 @@ class Node extends EventEmitter {
   }
 
   insert(element: Instance | TextInstance, index: number) {
-    if (element.screen !== this._screen) {
+    // eslint-disable-next-line no-underscore-dangle
+    if (element.screen !== this.screen) {
       throw new Error("Cannot insert element from different screen");
     }
     const self = this;
@@ -95,6 +100,8 @@ class Node extends EventEmitter {
       }
     })(element);
   }
+
+  abstract render(): void;
 }
 
 export default Node;

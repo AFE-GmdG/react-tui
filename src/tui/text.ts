@@ -7,8 +7,8 @@ import type Screen from "./screen";
 class Text extends EventEmitter {
   #text: string;
 
-  protected _screen: Screen;
-  get screen(): Screen { return this._screen; }
+  #screen: Screen;
+  get screen(): Screen { return this.#screen; }
 
   parent: Node | null;
 
@@ -17,7 +17,7 @@ class Text extends EventEmitter {
   constructor(screen: Screen, text: string) {
     super({ captureRejections: true });
     this.#text = text;
-    this._screen = screen;
+    this.#screen = screen;
     this.parent = null;
     this.detached = true;
   }
@@ -26,6 +26,10 @@ class Text extends EventEmitter {
     if (this.parent) {
       this.parent.remove(this);
     }
+  }
+
+  render() {
+    console.log(`Render Text: ${this.#text}`);
   }
 }
 
