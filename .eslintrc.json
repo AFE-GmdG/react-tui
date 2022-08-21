@@ -3,7 +3,11 @@
   "ignorePatterns": [],
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks"
   ],
   "extends": [
     "airbnb-typescript"
@@ -24,10 +28,13 @@
     "max-len": [2, 160, 2, {"ignoreUrls": true}],
     "import/no-cycle": "off",
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "peerDependencies": false}],
+    "import/extensions": ["error", "never"],
     "lines-between-class-members": "off",
     "@typescript-eslint/lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
     "no-nested-ternary": "off",
     "object-curly-newline": "off", //["error", { "multiline": true, "minProperties": 8, "consistent": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "quotes": ["error", "double"],
     "@typescript-eslint/quotes": ["error", "double"],
     "no-unused-vars": "off",

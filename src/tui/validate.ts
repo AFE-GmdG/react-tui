@@ -5,7 +5,7 @@
  */
 export const lengthInPercentRegEx = /^((?:(?:0|[1-9][0-9]?)(?:\.[0-9]{1,6})?)|(?:100(?:\.[0]{1,6})?))%$/;
 
-export const hasLengthProperty = <T extends Object, P extends string>(props: T, property: P): props is T & { [P in typeof property]: number | string } => {
+export const hasLengthProperty = <T extends Object, P extends string>(props: T, property: P): props is T & { [PR in typeof property]: number | string } => {
   if (!(property in props)) {
     return false;
   }
@@ -15,4 +15,4 @@ export const hasLengthProperty = <T extends Object, P extends string>(props: T, 
   }
 
   return (typeof prop === "string" && lengthInPercentRegEx.test(prop));
-}
+};

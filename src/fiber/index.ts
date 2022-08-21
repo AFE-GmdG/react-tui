@@ -24,6 +24,7 @@ import type {
   UpdatePayload,
 } from "./types";
 
+/* eslint-disable @typescript-eslint/indent */
 type TuiRootHostConfig = HostConfig<
   Type,            // Type
   Props,           // Props
@@ -47,6 +48,7 @@ type TuiRootReconciler = ReactFiberReconciler.Reconciler<
   any,             // SuspenseInstance
   any              // PublicInstance
 >;
+/* eslint-enable @typescript-eslint/indent */
 
 class TuiRoot {
   #hostConfig: TuiRootHostConfig;
@@ -58,8 +60,8 @@ class TuiRoot {
     this.#reconciler = ReactFiberReconciler(this.#hostConfig);
 
     const container: Container = {
-      _screen: screen,
-      _hostContext: {},
+      screen: screen,
+      hostContext: {},
     };
 
     this.#internalRoot = this.#reconciler.createContainer(
@@ -70,7 +72,7 @@ class TuiRoot {
       null,            // concurrentUpdatesByDefaultOverride: boolean | null
       "",              // identifierPrefix: string
       () => { },       // onRecoverableError: (error: Error) => void
-      null             // transitionCallbacks: ReactFiberReconciler.TransitionTracingCallbacks | null
+      null,            // transitionCallbacks: ReactFiberReconciler.TransitionTracingCallbacks | null
     );
   }
 
@@ -129,16 +131,16 @@ class TuiRoot {
         if (!isBoxProps(props)) {
           throw new Error("Invalid props");
         }
-        return new Box(rootContainer._screen, props);
+        return new Box(rootContainer.screen, props);
       }
       default:
-    };
+    }
     debugger;
     throw new Error("Method not implemented.");
   }
 
   #createTextInstance(text: string, rootContainer: Container, _hostContext: HostContext, _internalHandle: OpaqueHandle) {
-    return new Text(rootContainer._screen, text);
+    return new Text(rootContainer.screen, text);
   }
 
   #appendInitialChild(parentInstance: Instance, child: Instance | TextInstance) {
@@ -161,11 +163,11 @@ class TuiRoot {
   }
 
   #getRootHostContext(rootContainer: Container) {
-    return rootContainer._hostContext;
+    return rootContainer.hostContext;
   }
 
   #getChildHostContext(_parentHostContext: HostContext, _type: Type, rootContainer: Container) {
-    return rootContainer._hostContext;
+    return rootContainer.hostContext;
   }
 
   #getPublicInstance(instance: Instance) {
@@ -304,7 +306,7 @@ class TuiRoot {
 
     this.#reconciler.updateContainer(children, this.#internalRoot, null, callback);
   }
-};
+}
 
 export const createRoot = (screen: Screen) => {
   return new TuiRoot(screen);

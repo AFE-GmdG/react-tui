@@ -10,7 +10,7 @@
       },
       "args": [
         "run",
-        "build",
+        "builddemo",
       ],
       "group": "build",
       "presentation": {

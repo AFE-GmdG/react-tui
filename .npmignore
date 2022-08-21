@@ -11,4 +11,5 @@ src/
 babel.config.json
 npm-debug.log
 tsconfig.json
+webpack.config.js
 *.tgz

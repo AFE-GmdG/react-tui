@@ -12,6 +12,11 @@
       "cwd": "${workspaceFolder}",
       "args": [],
       "preLaunchTask": "build-demo",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/src/*",
+        "webpack:///*": "*",
+      },
       "console": "integratedTerminal",
       "presentation": {
         "hidden": false,

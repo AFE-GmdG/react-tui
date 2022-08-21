@@ -7,8 +7,8 @@ export type Type = "box";
 export type Props = {};
 
 export type Container = {
-  _screen: Screen; // (_screen is the rootContainer: OpaqueRoot) => node_modules/@types/react-reconciler/index.d.ts:885
-  _hostContext: HostContext;
+  screen: Screen;
+  hostContext: HostContext;
 };
 
 export type HostContext = {};
