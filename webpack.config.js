@@ -33,8 +33,10 @@ const config = {
   output: {
     filename: "[name].js",
     path: path.resolve(cwd, "dist"),
-    publicPath: "",
     globalObject: "self",
+    library: {
+      type: "commonjs2",
+    },
   },
 
   module: {

@@ -1,6 +1,6 @@
 {
   "name": "@afegmdg/react-tui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React custom renderer for the terminal.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -24,8 +24,21 @@ git clone https://github.com/AFE-GmdG/react-tui.git
 cd react-tui
 npm install
 
+npm run builddemo
 npm run demo
 ```
 
 ## Usage
-...todo
+Currently you cannot use this version, since it's incomplete.
+
+## Next steps
+- [x] Figure out, how to bundle the library the correct way, so it can be used with other projects.
+- [ ] Complete the reconciler implementation
+  - [ ] no more `debugger` / `throw new Error("Method not implemented.")`
+- [ ] Basic layout calculations
+- [ ] Colored output
+- [ ] Implement basic components
+  - [ ] Text
+  - [ ] Box
+  - [ ] Button
+  - [ ] Input
