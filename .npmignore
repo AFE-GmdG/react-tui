@@ -12,4 +12,5 @@ babel.config.json
 npm-debug.log
 tsconfig.json
 webpack.config.js
+yarn.lock
 *.tgz
